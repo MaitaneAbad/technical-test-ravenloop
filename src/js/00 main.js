@@ -8,7 +8,8 @@ console.log(username.value);
 let login = [];
 let info = [];
 let results = [];
-function loginCredentials() {
+
+function loginCredentials(ev) {
   const link = document.getElementById('js-linkButton');
   console.log(login.username);
   console.log(login.password);
@@ -35,7 +36,6 @@ function api() {
 api();
 
 function handlerButton(ev) {
-  ev.preventDefault();
   loginCredentials();
 }
 

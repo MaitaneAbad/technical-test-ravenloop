@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- implementación md5 hash -->
+    <script src="http://www.myersdaily.org/joseph/javascript/md5.js"></script>
+    <title>Portal de malware</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="icon" href="./assets/images/favicon.png" />
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="">
+        <h1 class="">Bienvenido a tu portal de malware</h1>
+      </header>
+
+      <main class="">
+        <section class="">
+          <form>
+            <label for="username">
+              Usuario
+              <input
+                class="js-inputUser"
+                type="text"
+                name="username"
+                id="username"
+                placeholder="CEO"
+                required
+            /></label>
+            <label for="password">
+              contraseña
+              <input
+                class="js-inputPassword"
+                type="password"
+                name="password"
+                id="password"
+                required
+            /></label>
+            <input type="button" value="Entrar" class="js-button" />
+          </form>
+          <h1 class="js-name"></h1>
+          <div class="js-file">
+            <ul class="js-container"></ul>
+          </div>
+        </section>
+      </main>
+
+      <footer class="">
+        <p class="">&copy Maitane abad conde</p>
+        <p>Ravenloop</p>
+      </footer>
+
+    </div>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

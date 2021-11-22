@@ -21,7 +21,7 @@
         width: 100px;
       }
       &--inputButton {
-        width: 50px;
+        width: 55px;
         margin: 15px auto;
         height: 25px;
 
@@ -37,8 +37,31 @@
     }
   }
   &--sectionFile {
-    margin-bottom: 40px;
-    &__listSection {
+    &__sectionList {
+      display: flex;
+      flex-direction: column;
+      @media (min-width: 450px) {
+        margin: 40px auto;
+      }
+      &--list {
+        margin: 0 auto 25px auto;
+        border: 2px #473ce69c groove;
+        padding: 5px;
+        @media (min-width: 450px) {
+          padding: 10px;
+        }
+        &__name {
+        }
+        &__hash {
+        }
+        &__insertion {
+        }
+        &__lastUpdate {
+        }
+        &__systemConcerned {
+          width: 35ch;
+        }
+      }
     }
     &__sectionInfo {
       &--info {

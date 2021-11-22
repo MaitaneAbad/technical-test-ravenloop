@@ -13,14 +13,13 @@ let html = '';
 function loginCredentials() {
   if (username.value === login.username && password.value === login.password) {
     for (const malware of results) {
-      html += `<ul ">`;
-      html += `<li id=${malware.id} class="js-list">`;
-      html += `<h4>${malware.fileName}</h4>`;
-      html += `<p>${malware.hashmd5}</p>`;
-      html += `<p>${malware.insertionDate}</p>`;
-      html += `<p>${malware.lastUpdate}</p>`;
-      html += `<p>${malware.systemConcerned}</p>`;
-      html += `</li><li></li></ul>`;
+      html += `<li id=${malware.id} class="page__main--sectionFile__sectionList--list js-list">`;
+      html += `<h4 class="page__main--sectionFile__sectionList--list__name">${malware.fileName}</h4>`;
+      html += `<p class="page__main--sectionFile__sectionList--list__hash">${malware.hashmd5}</p>`;
+      html += `<p class="page__main--sectionFile__sectionList--list__insertion">${malware.insertionDate}</p>`;
+      html += `<p class="page__main--sectionFile__sectionList--list__lastUpdate">${malware.lastUpdate}</p>`;
+      html += `<p class="page__main--sectionFile__sectionList--list__systemConcerned">${malware.systemConcerned}</p>`;
+      html += `</li>`;
     }
   } else if (
     username.value !== login.username ||

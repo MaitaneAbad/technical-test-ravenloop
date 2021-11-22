@@ -1,6 +1,6 @@
 .page {
   font-family: $fontFamily;
-
+  height: 100vh;
   &__header {
     background: linear-gradient(to bottom, #7d76e781, white);
     font-size: $sizeTitle;

@@ -94,16 +94,28 @@
     }
     &__sectionInfo {
       &--info {
-        margin: 0 20px;
+        width: 80%;
+        margin: 0 auto;
+        @media (min-width: 768px) {
+          width: 70%;
+        }
+        @media (min-width: 1024px) {
+          width: 60%;
+        }
         &__title {
           text-align: center;
           text-transform: uppercase;
           margin-bottom: 10px;
           font-weight: 700;
-          font-size: $sizePage;
+        }
+        @media (min-width: 768px) {
+          font-size: ($sizePage * 1.5);
+        }
+        @media (min-width: 1024px) {
+          font-size: ($sizePage * 1.8);
         }
         &__name {
-          margin-bottom: 5px;
+          margin: 10px 0;
           font-weight: 500;
           text-transform: uppercase;
           &--span {
@@ -115,6 +127,9 @@
           }
         }
         &__list {
+          display: flex;
+          flex-direction: column;
+
           font-weight: 500;
           margin: 10px 0;
 
@@ -127,8 +142,15 @@
             font-size: $sizeMobile;
             margin: 5px 0 0 10px;
             overflow-wrap: break-word;
+            color: rgba(0, 0, 0, 0.726);
             @media (min-width: 465px) {
               font-size: ($sizeMobile * 1.2);
+            }
+            @media (min-width: 768px) {
+              font-size: ($sizeMobile * 1.5);
+            }
+            @media (min-width: 1024px) {
+              font-size: ($sizeMobile * 1.8);
             }
             &__span {
               text-transform: none;
@@ -143,12 +165,24 @@
             @media (min-width: 465px) {
               font-size: ($sizeMobile * 1.2);
             }
+            @media (min-width: 768px) {
+              font-size: ($sizeMobile * 1.5);
+            }
+            @media (min-width: 1024px) {
+              font-size: ($sizeMobile * 1.8);
+            }
           }
           &--antivirus {
             margin: 5px 0 0 10px;
             font-size: $sizeMobile;
             @media (min-width: 465px) {
               font-size: ($sizeMobile * 1.2);
+            }
+            @media (min-width: 768px) {
+              font-size: ($sizeMobile * 1.5);
+            }
+            @media (min-width: 1024px) {
+              font-size: ($sizeMobile * 1.8);
             }
             &__span {
               font-weight: normal;
@@ -173,8 +207,10 @@
         }
         &__form {
           display: flex;
-          justify-content: end;
+          justify-content: center;
           &--button {
+            margin-bottom: 25px;
+            font-size: $sizePage;
             width: 55px;
           }
         }

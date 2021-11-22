@@ -3,6 +3,7 @@ const username = document.querySelector('.js-inputUser');
 const password = document.querySelector('.js-inputPassword');
 const button = document.querySelector('.js-button');
 const container = document.querySelector('.js-container');
+const formHidden = document.querySelector('.js-formHidden');
 
 let login = [];
 // let info = [];
@@ -10,8 +11,10 @@ let results = [];
 let html = '';
 
 function list() {
+  formHidden.classList.add('hidden');
+
   for (const malware of results) {
-    html += `<li id=${malware.id} class="page__main--sectionFile__sectionList--list js-list">`;
+    html += `<li id=${malware.id} class="page__main--sectionFile__sectionList--list hidden js-list">`;
     html += `<h4 class="page__main--sectionFile__sectionList--list__name">Fichero: ${malware.fileName}</h4>`;
     html += `<p class="page__main--sectionFile__sectionList--list__hash">Md5: ${malware.hashmd5}</p>`;
     html += `<p class="page__main--sectionFile__sectionList--list__insertion">Fecha de inserción: ${malware.insertionDate}</p>`;
@@ -20,17 +23,22 @@ function list() {
     html += `</li>`;
   }
   container.innerHTML = html;
+
   listenList();
 }
 
 //funcion para loguearme
 function loginCredentials() {
   if (username.value === login.username && password.value === login.password) {
+    html = '';
+
     list();
-  } else if (
-    username.value !== login.username ||
-    password.value !== login.password
-  ) {
+    username.value = '';
+    password.value = '';
+  } else {
+    username.value = '';
+    password.value = '';
+    html = '';
     html += `<div> Usuario o contraseña incorrecta </div>`;
   }
   container.innerHTML = html;

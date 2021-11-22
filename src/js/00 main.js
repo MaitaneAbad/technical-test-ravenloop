@@ -3,7 +3,7 @@ const username = document.querySelector('.js-inputUser');
 const password = document.querySelector('.js-inputPassword');
 const button = document.querySelector('.js-button');
 const container = document.querySelector('.js-container');
-const js = document.querySelector('.jsa');
+// const js = document.querySelector('.jsa');
 let login = [];
 // let info = [];
 let results = [];
@@ -28,7 +28,6 @@ function list() {
 //funcion para loguearme
 function loginCredentials() {
   if (username.value === login.username && password.value === login.password) {
-    js.classList.toggle('hidden');
     html = '';
     username.value = '';
     password.value = '';

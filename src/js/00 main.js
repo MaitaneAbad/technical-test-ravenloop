@@ -7,14 +7,11 @@ const closeSection = document.getElementById('sectionClose');
 const logout = document.querySelector('.js-logout');
 
 let login = [];
-// let info = [];
 let results = [];
 let html = '';
 
 function list() {
   for (const malware of results) {
-    console.log(malware.scoreAnalysis);
-
     html += `<li id=${malware.id} class="page__main--sectionFile__sectionList--list hidden js-list">`;
     html += `<h4 class="page__main--sectionFile__sectionList--list__name">Fichero: <span class="page__main--sectionFile__sectionList--list__name--span"> ${
       malware.fileName
@@ -118,11 +115,7 @@ function back() {
     back.addEventListener('click', handlerBack);
   }
 }
-// function handlerLogout() {
-//   const logout = document.querySelector('.js-logout');
 
-//   location.reload();
-// }
 function listenList() {
   const listMalware = document.querySelectorAll('.js-list');
   for (const listClick of listMalware) {
@@ -138,10 +131,8 @@ function api() {
     .then((response) => response.json())
     .then((data) => {
       (login = data.login), (results = data.results);
-      // (info = data.info);
       console.log(login);
       console.log(results);
-      // console.log(info);
     });
 }
 api();

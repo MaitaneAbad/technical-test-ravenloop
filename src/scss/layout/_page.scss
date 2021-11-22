@@ -1,8 +1,18 @@
 .page__main {
   font-size: $sizeMobile;
+
   @media (min-width: 465px) {
     font-size: ($sizePage * 1.2);
   }
+  &--form {
+    position: fixed;
+    top: 0;
+    right: 0;
+    &__logout {
+      margin: 5px 10px;
+    }
+  }
+
   &--sectionForm {
     &.hidden {
       display: none;
@@ -73,8 +83,8 @@
         }
         &:hover {
           cursor: pointer;
-          background-color: #7e76e762;
-          box-shadow: 10px 10px 50px #7a71f881;
+          background-color: $colorHover;
+          box-shadow: 10px 10px 50px $colorShadow;
         }
         &__name {
           margin-bottom: 4px;
@@ -90,6 +100,16 @@
             font-weight: normal;
             text-transform: none;
             overflow-wrap: break-word;
+            display: inline;
+
+            &__iconClean {
+              color: green;
+              margin-left: 50px;
+            }
+            &__iconDanger {
+              color: red;
+              margin-left: 50px;
+            }
           }
         }
       }
@@ -220,7 +240,7 @@
           &--button {
             margin: 10px 0 30px 0;
             font-size: $sizePage;
-            padding: 0 5px;
+            padding: 2.5px 5px;
           }
         }
       }

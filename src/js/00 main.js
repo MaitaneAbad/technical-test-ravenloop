@@ -3,16 +3,13 @@ const username = document.querySelector('.js-inputUser');
 const password = document.querySelector('.js-inputPassword');
 const button = document.querySelector('.js-button');
 const container = document.querySelector('.js-container');
-const formHidden = document.querySelector('.js-formHidden');
-
+const js = document.querySelector('.jsa');
 let login = [];
 // let info = [];
 let results = [];
 let html = '';
 
 function list() {
-  formHidden.classList.add('hidden');
-
   for (const malware of results) {
     html += `<li id=${malware.id} class="page__main--sectionFile__sectionList--list hidden js-list">`;
     html += `<h4 class="page__main--sectionFile__sectionList--list__name">Fichero: ${malware.fileName}</h4>`;
@@ -25,16 +22,17 @@ function list() {
   container.innerHTML = html;
 
   listenList();
+  handleList();
 }
 
 //funcion para loguearme
 function loginCredentials() {
   if (username.value === login.username && password.value === login.password) {
+    js.classList.toggle('hidden');
     html = '';
-
-    list();
     username.value = '';
     password.value = '';
+    list();
   } else {
     username.value = '';
     password.value = '';
@@ -42,14 +40,12 @@ function loginCredentials() {
     html += `<div> Usuario o contraseña incorrecta </div>`;
   }
   container.innerHTML = html;
-  listenList();
 }
 
 // Eventos para al clicar en un malware que me quite el listado y me aparezca solo los datos del clicado
 function handleList(ev) {
   const selected = ev.currentTarget.id;
   const infoSelected = results[selected - 1];
-
   html = ' ';
   html +=
     '<article class="page__main--sectionFile__sectionInfo--info"> <h3 class="page__main--sectionFile__sectionInfo--info__title">Información </h3>';

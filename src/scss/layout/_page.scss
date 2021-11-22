@@ -44,6 +44,7 @@
       display: flex;
       flex-direction: column;
       margin: 0 30px;
+
       @media (min-width: 450px) {
         margin: 40px 30px;
       }
@@ -71,6 +72,7 @@
           width: 55%;
         }
         &:hover {
+          cursor: pointer;
           background-color: #7e76e762;
           box-shadow: 10px 10px 50px #7a71f881;
         }
@@ -188,26 +190,15 @@
             }
             &__span {
               font-weight: normal;
-              display: flex;
 
-              @media (min-width: 450px) {
-                justify-content: center;
-                transform: translateY(-22.5px);
-              }
-              @media (min-width: 768px) {
-                transform: translateY(-25px);
-              }
-              @media (min-width: 1024px) {
-                transform: translateY(-27.5px);
-              }
-              margin-top: 10px;
+              margin: 10px 0 0 2.5px;
               &--iconClean {
                 color: green;
-                margin-left: 10px;
+                margin-left: 2px;
               }
               &--iconMalicious {
                 color: rgb(250, 3, 3);
-                margin-left: 10px;
+                margin-left: 2px;
               }
             }
           }
@@ -229,7 +220,7 @@
           &--button {
             margin: 10px 0 30px 0;
             font-size: $sizePage;
-            width: 55px;
+            padding: 0 5px;
           }
         }
       }

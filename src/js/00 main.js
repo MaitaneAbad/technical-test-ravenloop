@@ -18,8 +18,7 @@ function list() {
      <span class="page__main--sectionFile__sectionList--list__name--span">${malware.hashmd5}</span></p>`;
     html += `<p class="page__main--sectionFile__sectionList--list__name">Fecha de inserción: <span class="page__main--sectionFile__sectionList--list__name--span">${malware.insertionDate}</span></p>`;
     html += `<p class="page__main--sectionFile__sectionList--list__name">Última actualización: <span class="page__main--sectionFile__sectionList--list__name--span">${malware.lastUpdate}</span> </p>`;
-    html += `<p class="page__main--sectionFile__sectionList--list__name">Sistema operativo: <span class="page__main--sectionFile__sectionList--list__name--span"> ${malware.systemConcerned}</span></p>`;
-    html += `</li>`;
+    html += `<p class="page__main--sectionFile__sectionList--list__name">Sistema operativo: <span class="page__main--sectionFile__sectionList--list__name--span"> ${malware.systemConcerned}</span></p></li>`;
   }
   container.innerHTML = html;
 
@@ -61,30 +60,31 @@ function handleList(ev) {
   } </span></p>`;
   html += `<p class="page__main--sectionFile__sectionInfo--info__name"> Tamaño: <span class="page__main--sectionFile__sectionInfo--info__name--span">${infoSelected.fileSize} </span></p>`;
   html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> <li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash md5: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${infoSelected.hash.md5}</span></li> `;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha256: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${infoSelected.hash.sha256}</span></li> `;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha-1: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${infoSelected.hash.sha1}</span></li></ul> `;
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha-1: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${infoSelected.hash.sha1}</span></li> `;
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha256: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${infoSelected.hash.sha256}</span></li></ul> `;
+
   html += `<p class="page__main--sectionFile__sectionInfo--info__ip"> Dirección <span class="page__main--sectionFile__sectionInfo--info__ip--span">ip</span> a las que se ha conectado: <span class="page__main--sectionFile__sectionInfo--info__ip--span__span">${infoSelected.ip}</span> </p>
   `;
   html += `<p class="page__main--sectionFile__sectionInfo--info__name"> Puntuación obtenida tras el análisis: <span class="page__main--sectionFile__sectionInfo--info__name--span">${infoSelected.scoreAnalysis}</span></p>`;
   html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de ficheros generados:</p> <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileOne}</li>`;
   html += ` <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileTwo}</li>`;
   html += ` <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileThree}</li></ul>`;
-  html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de antivirus:<p> <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Avast <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+  html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de antivirus:<p> <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Avast <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
     infoSelected.antivirusList.avast === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
   }</span></li>`;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">McAfree <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">McAfree <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
     infoSelected.antivirusList.mcafree === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
   }</li>`;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">BitDefender <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">BitDefender <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
     infoSelected.antivirusList.bitdefender === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
   }</li>`;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
     infoSelected.antivirusList.panda === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'

@@ -16,44 +16,47 @@
 
   <body>
     <div class="page">
-      <header class="">
-        <h1 class="">Bienvenido a tu portal de malware</h1>
+      <header class="page__header">
+        <h1 class="page__header--title">Bienvenido a tu portal de malware</h1>
       </header>
 
-      <main class="">
-        <section class="">
-          <form>
-            <label for="username">
-              Usuario
+      <main class="page__main">
+        <section class="page__main--sectionForm">
+          <form class="page__main--sectionForm__form">
+            <label class="page__main--sectionForm__form--label" for="username">
+              User
               <input
-                class="js-inputUser"
+                class="page__main--sectionForm__form--input js-inputUser"
                 type="text"
                 name="username"
                 id="username"
                 placeholder="CEO"
                 required
             /></label>
-            <label for="password">
-              contraseña
+            <label class="page__main--sectionForm__form--label" for="password">
+              Pass
               <input
-                class="js-inputPassword"
+                class="page__main--sectionForm__form--input js-inputPassword"
                 type="password"
                 name="password"
                 id="password"
                 required
             /></label>
-            <input type="button" value="Entrar" class="js-button" />
+            <input
+              class="page__main--sectionForm__form--inputButton js-button"
+              type="button"
+              value="Entrar"
+            />
           </form>
-          <h1 class="js-name"></h1>
-          <div class="js-file">
-            <ul class="js-container"></ul>
-          </div>
+        </section>
+        <section class="page__main--sectionFile js-file">
+          <ul class="page__main--sectionFile__sectionList js-container"></ul>
         </section>
       </main>
 
-      <footer class="">
-        <p class="">&copy Maitane abad conde</p>
-        <p>Ravenloop</p>
+      <footer class="page__footer">
+        <p class="page__footer--name">&copy maitane abad conde</p>
+        <p class="page__footer--company">&copy Ravenloop</p>
       </footer>
 
     </div>

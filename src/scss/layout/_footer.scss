@@ -7,10 +7,11 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+  height: 5vh;
   @media (min-width: 420px) {
     display: grid;
     grid-template-columns: 2fr 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     font-size: $sizePage;
     opacity: 0.5;
 
@@ -23,13 +24,13 @@
     margin-left: 10px;
     text-align: center;
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
   }
   &--company {
     text-transform: uppercase;
     margin-left: 10px;
     text-align: center;
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
   }
 }

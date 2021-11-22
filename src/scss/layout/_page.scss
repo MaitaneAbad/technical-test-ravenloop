@@ -96,6 +96,8 @@
       &--info {
         width: 80%;
         margin: 0 auto;
+        border-radius: 10px;
+
         @media (min-width: 768px) {
           width: 70%;
         }

@@ -51,10 +51,10 @@
         margin: 0 auto;
       }
       @media (min-width: 1024px) {
-        margin: 40px 250;
+        margin: 100px 150px;
       }
       &--list {
-        margin: 0 auto 25px auto;
+        margin: 0 auto 35px auto;
         padding: 5px;
         font-size: $sizeMobile;
         border-radius: 10px;
@@ -186,11 +186,26 @@
             }
             &__span {
               font-weight: normal;
+              display: flex;
+
+              @media (min-width: 450px) {
+                justify-content: center;
+                transform: translateY(-22.5px);
+              }
+              @media (min-width: 768px) {
+                transform: translateY(-25px);
+              }
+              @media (min-width: 1024px) {
+                transform: translateY(-27.5px);
+              }
+              margin-top: 10px;
               &--iconClean {
                 color: green;
+                margin-left: 10px;
               }
               &--iconMalicious {
                 color: rgb(250, 3, 3);
+                margin-left: 10px;
               }
             }
           }
@@ -208,8 +223,9 @@
         &__form {
           display: flex;
           justify-content: center;
+          margin-bottom: 50px;
           &--button {
-            margin-bottom: 25px;
+            margin: 10px 0 30px 0;
             font-size: $sizePage;
             width: 55px;
           }

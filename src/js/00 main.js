@@ -69,22 +69,22 @@ function handleList(ev) {
   html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de ficheros generados:</p> <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileOne}</li>`;
   html += ` <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileTwo}</li>`;
   html += ` <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileThree}</li></ul>`;
-  html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de antivirus:<p> <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Avast: <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+  html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de antivirus:<p> <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Avast <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
     infoSelected.antivirusList.avast === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
   }</span></li>`;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">McAfree: <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">McAfree <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
     infoSelected.antivirusList.mcafree === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
   }</li>`;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">BitDefender: <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">BitDefender <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
     infoSelected.antivirusList.bitdefender === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
   }</li>`;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda: <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
     infoSelected.antivirusList.panda === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'

@@ -1,5 +1,5 @@
 .page__footer {
-  background: linear-gradient(to bottom, white, #7d76e781);
+  background: linear-gradient(to bottom, white, #7e76e7a1);
   text-align: center;
   opacity: 0.7;
   font-weight: 600;
@@ -13,6 +13,7 @@
     grid-template-rows: 1fr 1fr;
     font-size: $sizePage;
     opacity: 0.5;
+
     @media (min-width: 768px) {
       font-size: ($sizePage * 1.5);
     }

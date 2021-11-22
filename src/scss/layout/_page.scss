@@ -1,0 +1,68 @@
+.page__main {
+  font-size: $sizePage;
+  @media (min-width: 465px) {
+    font-size: ($sizePage * 1.2);
+  }
+  &--sectionForm {
+    &__form {
+      display: flex;
+      flex-direction: column;
+
+      &--label {
+        margin: 0 auto 10px auto;
+        text-align: start;
+        @media (min-width: 450px) {
+          margin: 0 0 0 20px;
+        }
+      }
+      &--input {
+        margin-left: 5px;
+        padding-left: 5px;
+        width: 100px;
+      }
+      &--inputButton {
+        width: 50px;
+        margin: 15px auto;
+        height: 25px;
+
+        @media (min-width: 450px) {
+          margin: 0 0 0 30px;
+          transform: none;
+        }
+      }
+      @media (min-width: 450px) {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+  &--sectionFile {
+    margin-bottom: 40px;
+    &__listSection {
+    }
+    &__sectionInfo {
+      &--info {
+        &__title {
+        }
+        &__name {
+        }
+        &__extension {
+        }
+        &__size {
+        }
+        &__list {
+          &--hash {
+          }
+          &--file {
+          }
+          &--antivirus {
+          }
+        }
+        &__ip {
+        }
+        &__score {
+        }
+      }
+    }
+  }
+}

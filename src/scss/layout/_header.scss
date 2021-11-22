@@ -1,0 +1,17 @@
+.page {
+  margin: 20px;
+  font-family: $fontFamily;
+  &__header {
+    font-size: $sizeTitle;
+    text-align: center;
+    text-transform: uppercase;
+    &--title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      @media (min-width: 420px) {
+        margin-bottom: 30px;
+        font-size: ($sizeTitle * 1.5);
+      }
+    }
+  }
+}

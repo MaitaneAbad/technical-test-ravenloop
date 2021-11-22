@@ -4,6 +4,9 @@
     font-size: $sizePage;
   }
   &--sectionForm {
+    &.hidden {
+      display: none;
+    }
     &__form {
       display: flex;
       flex-direction: column;
@@ -76,6 +79,10 @@
     &__sectionInfo {
       &--info {
         &__title {
+          text-align: center;
+          text-transform: uppercase;
+          margin-bottom: 10px;
+          font-weight: 700;
         }
         &__name {
         }
@@ -84,12 +91,17 @@
         &__size {
         }
         &__list {
+          margin: 10px 0;
           &--hash {
-            font-size: ($sizeMobile * 0.7);
+            margin-top: 5px;
+            overflow-wrap: break-word;
           }
           &--file {
+            margin-top: 5px;
+            text-align: center;
           }
           &--antivirus {
+            margin-top: 5px;
           }
         }
         &__ip {

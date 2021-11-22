@@ -1,7 +1,7 @@
 .page__main {
   font-size: $sizeMobile;
   @media (min-width: 465px) {
-    font-size: $sizePage;
+    font-size: ($sizePage * 1.2);
   }
   &--sectionForm {
     &.hidden {
@@ -43,70 +43,140 @@
     &__sectionList {
       display: flex;
       flex-direction: column;
+      margin: 0 30px;
       @media (min-width: 450px) {
-        margin: 40px auto;
+        margin: 40px 30px;
+      }
+      @media (min-width: 768px) {
+        margin: 0 auto;
+      }
+      @media (min-width: 1024px) {
+        margin: 40px 250;
       }
       &--list {
         margin: 0 auto 25px auto;
-        border: 2px #473ce69c groove;
         padding: 5px;
         font-size: $sizeMobile;
+        border-radius: 10px;
+        width: 90%;
         @media (min-width: 450px) {
           padding: 10px;
           font-size: $sizePage;
+          width: 80%;
+        }
+        @media (min-width: 768px) {
+          width: 60%;
+        }
+        @media (min-width: 1024px) {
+          width: 55%;
         }
         &:hover {
-          background-color: #7d76e781;
-          box-shadow: 10px 10px 40px #7d76e781;
-          width: 325px;
+          background-color: #7e76e762;
+          box-shadow: 10px 10px 50px #7a71f881;
         }
         &__name {
-        }
-        &__hash {
-        }
-        &__insertion {
-        }
-        &__lastUpdate {
-        }
-        &__systemConcerned {
-          width: 25ch;
-          @media (min-width: 450px) {
-            width: 25ch;
+          margin-bottom: 4px;
+          font-weight: 600;
+          text-transform: uppercase;
+          @media (min-width: 768px) {
+            font-size: ($sizePage * 1.2);
+          }
+          @media (min-width: 1024px) {
+            font-size: ($sizePage * 1.3);
+          }
+          &--span {
+            font-weight: normal;
+            text-transform: none;
+            overflow-wrap: break-word;
           }
         }
       }
     }
     &__sectionInfo {
       &--info {
+        margin: 0 20px;
         &__title {
           text-align: center;
           text-transform: uppercase;
           margin-bottom: 10px;
           font-weight: 700;
+          font-size: $sizePage;
         }
         &__name {
-        }
-        &__extension {
-        }
-        &__size {
+          margin-bottom: 5px;
+          font-weight: 500;
+          text-transform: uppercase;
+          &--span {
+            text-transform: none;
+            font-weight: normal;
+            &__icon {
+              color: red;
+            }
+          }
         }
         &__list {
+          font-weight: 500;
           margin: 10px 0;
-          &--hash {
+
+          &--name {
+            text-transform: uppercase;
             margin-top: 5px;
+          }
+          &--hash {
+            text-transform: uppercase;
+            font-size: $sizeMobile;
+            margin: 5px 0 0 10px;
             overflow-wrap: break-word;
+            @media (min-width: 465px) {
+              font-size: ($sizeMobile * 1.2);
+            }
+            &__span {
+              text-transform: none;
+              font-weight: normal;
+              line-height: 18px;
+            }
           }
           &--file {
-            margin-top: 5px;
-            text-align: center;
+            font-size: $sizeMobile;
+            font-weight: normal;
+            margin: 5px 0 0 10px;
+            @media (min-width: 465px) {
+              font-size: ($sizeMobile * 1.2);
+            }
           }
           &--antivirus {
-            margin-top: 5px;
+            margin: 5px 0 0 10px;
+            font-size: $sizeMobile;
+            @media (min-width: 465px) {
+              font-size: ($sizeMobile * 1.2);
+            }
+            &__span {
+              font-weight: normal;
+              &--iconClean {
+                color: green;
+              }
+              &--iconMalicious {
+                color: rgb(250, 3, 3);
+              }
+            }
           }
         }
         &__ip {
+          margin-bottom: 5px;
+          font-weight: 500;
+          text-transform: uppercase;
+          &--span {
+            &__span {
+              font-weight: normal;
+            }
+          }
         }
-        &__score {
+        &__form {
+          display: flex;
+          justify-content: end;
+          &--button {
+            width: 55px;
+          }
         }
       }
     }

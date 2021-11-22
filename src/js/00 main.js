@@ -58,7 +58,7 @@ function handleList(ev) {
       ? 'PDF <i class="fas fa-file-pdf"></i>'
       : ''
   } </p>`;
-  html += `<p class="page__main--sectionFile__sectionInfo--info__size"> Tamañaño: ${infoSelected.fileSize} </p>`;
+  html += `<p class="page__main--sectionFile__sectionInfo--info__size"> Tamaño: ${infoSelected.fileSize} </p>`;
   html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> <li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash md5: ${infoSelected.hash.md5}<li> `;
   html += `<li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha256: ${infoSelected.hash.sha256}</li> `;
   html += `<li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha-1: ${infoSelected.hash.sha1}</li></ul> `;

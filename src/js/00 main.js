@@ -9,18 +9,24 @@ let login = [];
 let results = [];
 let html = '';
 
+function list() {
+  for (const malware of results) {
+    html += `<li id=${malware.id} class="page__main--sectionFile__sectionList--list js-list">`;
+    html += `<h4 class="page__main--sectionFile__sectionList--list__name">Fichero: ${malware.fileName}</h4>`;
+    html += `<p class="page__main--sectionFile__sectionList--list__hash">Md5: ${malware.hashmd5}</p>`;
+    html += `<p class="page__main--sectionFile__sectionList--list__insertion">Fecha de inserción: ${malware.insertionDate}</p>`;
+    html += `<p class="page__main--sectionFile__sectionList--list__lastUpdate">Última actualización: ${malware.lastUpdate}</p>`;
+    html += `<p class="page__main--sectionFile__sectionList--list__systemConcerned">Sistema operativo: ${malware.systemConcerned}</p>`;
+    html += `</li>`;
+  }
+  container.innerHTML = html;
+  listenList();
+}
+
 //funcion para loguearme
 function loginCredentials() {
   if (username.value === login.username && password.value === login.password) {
-    for (const malware of results) {
-      html += `<li id=${malware.id} class="page__main--sectionFile__sectionList--list js-list">`;
-      html += `<h4 class="page__main--sectionFile__sectionList--list__name">${malware.fileName}</h4>`;
-      html += `<p class="page__main--sectionFile__sectionList--list__hash">${malware.hashmd5}</p>`;
-      html += `<p class="page__main--sectionFile__sectionList--list__insertion">${malware.insertionDate}</p>`;
-      html += `<p class="page__main--sectionFile__sectionList--list__lastUpdate">${malware.lastUpdate}</p>`;
-      html += `<p class="page__main--sectionFile__sectionList--list__systemConcerned">${malware.systemConcerned}</p>`;
-      html += `</li>`;
-    }
+    list();
   } else if (
     username.value !== login.username ||
     password.value !== login.password
@@ -35,6 +41,7 @@ function loginCredentials() {
 function handleList(ev) {
   const selected = ev.currentTarget.id;
   const infoSelected = results[selected - 1];
+
   html = ' ';
   html +=
     '<article class="page__main--sectionFile__sectionInfo--info"> <h3 class="page__main--sectionFile__sectionInfo--info__title">Información </h3>';
@@ -53,8 +60,25 @@ function handleList(ev) {
   html += `<ul class="page__main--sectionFile__sectionInfo--info__list"> Listado de antivirus: <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Avast: ${infoSelected.antivirusList.avast}</li>`;
   html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">McAfree: ${infoSelected.antivirusList.mcafree}</li>`;
   html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">BitDefender: ${infoSelected.antivirusList.bitdefender}</li>`;
-  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda: ${infoSelected.antivirusList.panda}</li></ul></article>`;
+  html += `<li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda: ${infoSelected.antivirusList.panda}</li>`;
+  html += ` </ul><form><input
+  class="js-buttonBack"
+  type="button"
+  value="Atrás"
+/></form></article>`;
   container.innerHTML = html;
+  back();
+}
+function handlerBack() {
+  html = '';
+  list();
+}
+
+function back() {
+  const buttonBack = document.querySelectorAll('.js-buttonBack');
+  for (const back of buttonBack) {
+    back.addEventListener('click', handlerBack);
+  }
 }
 
 function listenList() {
@@ -79,7 +103,6 @@ function api() {
     });
 }
 api();
-
 // funcion para el botón y loguearme
 function handlerButton() {
   loginCredentials();

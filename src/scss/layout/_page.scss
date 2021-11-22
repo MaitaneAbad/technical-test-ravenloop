@@ -26,13 +26,13 @@
         height: 25px;
 
         @media (min-width: 450px) {
-          margin: 0 0 0 30px;
-          transform: none;
+          margin: 0 0 0 20px;
         }
       }
       @media (min-width: 450px) {
         flex-direction: row;
         justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -47,8 +47,15 @@
         margin: 0 auto 25px auto;
         border: 2px #473ce69c groove;
         padding: 5px;
+        font-size: $sizeMobile;
         @media (min-width: 450px) {
           padding: 10px;
+          font-size: $sizePage;
+        }
+        &:hover {
+          background-color: #7d76e781;
+          box-shadow: 10px 10px 40px #7d76e781;
+          width: 325px;
         }
         &__name {
         }
@@ -59,7 +66,10 @@
         &__lastUpdate {
         }
         &__systemConcerned {
-          width: 35ch;
+          width: 25ch;
+          @media (min-width: 450px) {
+            width: 25ch;
+          }
         }
       }
     }

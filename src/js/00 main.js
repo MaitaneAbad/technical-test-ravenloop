@@ -167,16 +167,16 @@ function api() {
     });
 }
 api();
-function pageApi() {
-  fetch(
-    'https://maitaneabad.github.io/api-technical-test-ravenloop/api/data2.json'
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      results = data.results;
-      console.log(data);
-    });
-}
+// function pageApi() {
+//   fetch(
+//     'https://maitaneabad.github.io/api-technical-test-ravenloop/api/data2.json'
+//   )
+//     .then((response) => response.json())
+//     .then((data) => {
+//       results = data.results;
+//       console.log(data);
+//     });
+// }
 
 // funcion para el botón y loguearme
 function handlerButton() {
@@ -186,19 +186,19 @@ function handlerLogout() {
   location.reload();
 }
 function handlerPageNext() {
-  console.log('aquí se renderizaria y mostraria el listado del 5 al 8');
+  // console.log('aquí se renderizaria y mostraria el listado del 5 al 8');
   pageNext.classList.add('hidden');
   pageBack.classList.remove('hidden');
 
-  console.log(results.splice(0, 2));
+  // console.log(results.splice(0, 2));
 }
 
 function handlerPageBack() {
-  console.log('aquí se renderizaria y mostraria el listado del 1 al 4');
+  // console.log('aquí se renderizaria y mostraria el listado del 1 al 4');
   pageNext.classList.remove('hidden');
   pageBack.classList.add('hidden');
   api();
-  console.log(api());
+  // console.log(api());
 }
 button.addEventListener('click', handlerButton);
 logout.addEventListener('click', handlerLogout);

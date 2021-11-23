@@ -17,7 +17,7 @@ function list() {
     html += `<h4 class="page__main--sectionFile__sectionList--list__name">Fichero: <span class="page__main--sectionFile__sectionList--list__name--span"> ${
       malware.fileName
     }${
-      malware.scoreAnalysis <= '50'
+      malware.scoreAnalysis === '0'
         ? '<i class="page__main--sectionFile__sectionList--list__name--span__iconClean fas fa-circle"></i>'
         : '<i class="page__main--sectionFile__sectionList--list__name--span__iconDanger fas fa-circle"></i>'
     }</span></h4>`;
@@ -36,7 +36,7 @@ function list() {
 //funcion para loguearme
 function loginCredentials() {
   const md5hash = md5(password.value);
-  console.log(md5hash);
+
   if (username.value === login.username && md5hash === login.password) {
     html = '';
     html += `<label for="page">Página:

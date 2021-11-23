@@ -3,7 +3,6 @@ const username = document.querySelector('.js-inputUser');
 const password = document.querySelector('.js-inputPassword');
 const button = document.querySelector('.js-button');
 const container = document.querySelector('.js-container');
-
 const closeSection = document.getElementById('sectionClose');
 const logout = document.querySelector('.js-logout');
 

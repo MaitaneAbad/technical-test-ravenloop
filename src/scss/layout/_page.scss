@@ -5,7 +5,7 @@
     font-size: ($sizePage * 1.2);
   }
   &--form {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     &__logout {
@@ -111,7 +111,7 @@
             display: inline;
 
             &__iconClean {
-              color: green;
+              color: rgb(57, 192, 3);
               margin-left: 50px;
             }
             &__iconDanger {

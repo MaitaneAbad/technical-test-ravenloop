@@ -10,6 +10,9 @@
     right: 0;
     &__logout {
       margin: 5px 10px;
+      &.hidden {
+        display: none;
+      }
     }
   }
 
@@ -124,7 +127,7 @@
         width: 80%;
         margin: 0 auto;
         border-radius: 10px;
-        line-height: 20px;
+        line-height: 25px;
         @media (min-width: 768px) {
           width: 70%;
         }

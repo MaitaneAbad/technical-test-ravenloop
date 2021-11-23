@@ -3,6 +3,7 @@ const username = document.querySelector('.js-inputUser');
 const password = document.querySelector('.js-inputPassword');
 const button = document.querySelector('.js-button');
 const container = document.querySelector('.js-container');
+
 const closeSection = document.getElementById('sectionClose');
 const logout = document.querySelector('.js-logout');
 
@@ -26,6 +27,7 @@ function list() {
     html += `<p class="page__main--sectionFile__sectionList--list__name">Última actualización: <span class="page__main--sectionFile__sectionList--list__name--span">${malware.lastUpdate}</span> </p>`;
     html += `<p class="page__main--sectionFile__sectionList--list__name">Sistema operativo: <span class="page__main--sectionFile__sectionList--list__name--span"> ${malware.systemConcerned}</span></p></li>`;
   }
+
   container.innerHTML = html;
 
   listenList();
@@ -33,10 +35,18 @@ function list() {
 
 //funcion para loguearme
 function loginCredentials() {
-  if (username.value === login.username && password.value === login.password) {
+  if (
+    username.value === login.username &&
+    md5(password.value) === login.password
+  ) {
     html = '';
-    // html += `<form><input class="js-logout" type="button" value="cerrar sesión"/> </form>`;
+    html += `<label for="page">Página:
+    <select class="js-page" id="page" name="page">
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select></label>`;
     list();
+    logout.classList.remove('hidden');
     closeSection.classList.add('hidden');
     username.value = '';
     password.value = '';
@@ -44,7 +54,7 @@ function loginCredentials() {
     username.value = '';
     password.value = '';
     html = '';
-    html += `<div> Usuario o contraseña incorrecta </div>`;
+    html += `<div> Usuario o contraseña incorrecta, comprueba las mayúsculas </div>`;
   }
   container.innerHTML = html;
 
@@ -130,9 +140,8 @@ function api() {
   )
     .then((response) => response.json())
     .then((data) => {
-      (login = data.login), (results = data.results);
-      console.log(login);
-      console.log(results);
+      login = data.login;
+      results = data.results;
     });
 }
 api();
@@ -143,5 +152,6 @@ function handlerButton() {
 function handlerLogout() {
   location.reload();
 }
+
 button.addEventListener('click', handlerButton);
 logout.addEventListener('click', handlerLogout);

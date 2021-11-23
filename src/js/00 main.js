@@ -35,10 +35,9 @@ function list() {
 
 //funcion para loguearme
 function loginCredentials() {
-  if (
-    username.value === login.username &&
-    md5(password.value) === login.password
-  ) {
+  const md5hash = md5(password.value);
+  console.log(md5hash);
+  if (username.value === login.username && md5hash === login.password) {
     html = '';
     html += `<label for="page">Página:
     <select class="js-page" id="page" name="page">

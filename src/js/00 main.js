@@ -13,7 +13,6 @@ let html = '';
 
 function list() {
   for (const malware of results) {
-    console.log(malware.scoreAnalysis);
     html += `<li id=${malware.id} class="page__main--sectionFile__sectionList--list hidden js-list">`;
     html += `<h4 class="page__main--sectionFile__sectionList--list__name">Fichero: <span class="page__main--sectionFile__sectionList--list__name--span"> ${
       malware.fileName

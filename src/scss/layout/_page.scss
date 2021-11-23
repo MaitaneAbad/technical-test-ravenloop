@@ -25,7 +25,7 @@
       flex-direction: column;
 
       &--label {
-        margin: 0 auto 10px auto;
+        margin: 0 auto 10px;
         text-align: start;
         @media (min-width: 450px) {
           margin: 0 0 0 20px;
@@ -73,7 +73,7 @@
         margin: 100px 150px;
       }
       &--list {
-        margin: 0 auto 35px auto;
+        margin: 0 auto 35px;
         padding: 5px;
         font-size: $sizeMobile;
         border-radius: 10px;
@@ -247,7 +247,7 @@
           justify-content: center;
           margin-bottom: 50px;
           &--button {
-            margin: 10px 0 30px 0;
+            margin: 10px 0 30px;
             font-size: $sizePage;
             padding: 2.5px 5px;
           }

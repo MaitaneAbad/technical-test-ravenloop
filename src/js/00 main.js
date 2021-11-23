@@ -5,15 +5,22 @@ const button = document.querySelector('.js-button');
 const container = document.querySelector('.js-container');
 const closeSection = document.getElementById('sectionClose');
 const logout = document.querySelector('.js-logout');
-const pageNext = document.querySelector('.js-pageNext');
-const pageBack = document.querySelector('.js-pageBack');
+const numberPages = document.querySelector('.js-containerPages');
+
+console.log(numberPages);
+// const pageNext = document.querySelector('.js-pageNext');
+// const pageBack = document.querySelector('.js-pageBack');
 
 let login = [];
 let results = [];
 let html = '';
+let buttons = '';
+let resultSub = [];
+let currentPage = 0;
+let numberElem = 5;
 
 function list() {
-  for (const malware of results) {
+  for (const malware of resultSub[currentPage]) {
     html += `<li id=${
       malware.id
     } class="page__main--sectionFile__sectionList--list hidden js-list">
@@ -38,9 +45,11 @@ function list() {
     }</span></p></li>`;
   }
   container.innerHTML = html;
-  handlerPageNext();
-  handlerPageBack();
+
+  // handlerPageNext();
+  // handlerPageBack();
   listenList();
+  listenButtons();
 }
 
 //funcion para loguearme
@@ -49,10 +58,12 @@ function loginCredentials() {
 
   if (username.value === login.username && md5hash === login.password) {
     html = '';
+    subArray();
+    callButtons();
     list();
     logout.classList.remove('hidden');
     closeSection.classList.add('hidden');
-    pageNext.classList.remove('hidden');
+    // pageNext.classList.remove('hidden');
     username.value = '';
     password.value = '';
   } else {
@@ -62,15 +73,18 @@ function loginCredentials() {
     html += `<div> Usuario o contraseña incorrecta, comprueba las mayúsculas </div>`;
   }
   container.innerHTML = html;
-
   listenList();
+  listenButtons();
 }
 
 // Eventos para al clicar en un malware que me quite el listado y me aparezca solo los datos del clicado
 function handleList(ev) {
   const selected = ev.currentTarget.id;
-  const infoSelected = results[selected - 1];
-
+  console.log(selected);
+  const auxArray = resultSub[currentPage];
+  console.log(auxArray);
+  const infoSelected = auxArray[selected - 1];
+  console.log(infoSelected);
   html = ' ';
   html += `<article class="page__main--sectionFile__sectionInfo--info"> <h3 class="page__main--sectionFile__sectionInfo--info__title">Información </h3>
  <p class="page__main--sectionFile__sectionInfo--info__name"> Nombre completo: <span class="page__main--sectionFile__sectionInfo--info__name--span">${
@@ -167,16 +181,55 @@ function api() {
     });
 }
 api();
-// function pageApi() {
-//   fetch(
-//     'https://maitaneabad.github.io/api-technical-test-ravenloop/api/data2.json'
-//   )
-//     .then((response) => response.json())
-//     .then((data) => {
-//       results = data.results;
-//       console.log(data);
-//     });
-// }
+function subArray() {
+  const nPages = Math.floor(results.length / numberElem + 1);
+
+  //Creacion de array de subArray para paginación
+  //forma manual:
+  // const resultSub = [
+  //   results.slice(0, numberElem),
+  //   results.slice(numberElem, 2 * numberElem),
+  //   results.slice(2 * numberElem, 2 * numberElem + 2),
+  // ];
+  // console.log(resultSub);
+
+  //forma dinámica:
+  for (let i = 0; i < nPages; i++) {
+    let aux = 0;
+    if (i === nPages - 1) {
+      aux = i * numberElem + (results.length % numberElem);
+    } else {
+      aux = (i + 1) * numberElem;
+    }
+    resultSub.push(results.slice(i * numberElem, aux));
+  }
+}
+
+function callButtons() {
+  const nPages = Math.floor(results.length / numberElem + 1);
+
+  for (let i = 0; i < nPages; i++) {
+    const nButton = i + 1;
+    buttons += `<button class="js-buttonPages" id=${i}>${nButton}</button>`;
+  }
+  numberPages.innerHTML = buttons;
+  listenButtons();
+}
+
+function listenButtons() {
+  const listButtons = document.querySelectorAll('.js-buttonPages');
+  for (const listClick of listButtons) {
+    listClick.addEventListener('click', handleButtons);
+  }
+}
+
+function handleButtons(ev) {
+  html = '';
+  currentPage = ev.currentTarget.id;
+  list();
+  container.innerHTML = html;
+  listenList();
+}
 
 // funcion para el botón y loguearme
 function handlerButton() {
@@ -185,22 +238,7 @@ function handlerButton() {
 function handlerLogout() {
   location.reload();
 }
-function handlerPageNext() {
-  // console.log('aquí se renderizaria y mostraria el listado del 5 al 8');
-  pageNext.classList.add('hidden');
-  pageBack.classList.remove('hidden');
 
-  // console.log(results.splice(0, 2));
-}
-
-function handlerPageBack() {
-  // console.log('aquí se renderizaria y mostraria el listado del 1 al 4');
-  pageNext.classList.remove('hidden');
-  pageBack.classList.add('hidden');
-  api();
-  // console.log(api());
-}
+//funciones manejadoras
 button.addEventListener('click', handlerButton);
 logout.addEventListener('click', handlerLogout);
-pageNext.addEventListener('click', handlerPageNext);
-pageBack.addEventListener('click', handlerPageBack);

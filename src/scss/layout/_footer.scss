@@ -19,21 +19,9 @@
     font-size: ($sizePage * 1.5);
     padding: 15px;
   }
-  &--name {
-    margin: auto;
-
-    text-transform: capitalize;
-
-    text-align: center;
-    grid-column: 1;
-    grid-row: 1;
-  }
   &--company {
     margin: auto;
-
     text-align: center;
-    // grid-column: 2;
-    // grid-row: 1;
     width: 80px;
   }
 }

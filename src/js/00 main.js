@@ -7,10 +7,6 @@ const closeSection = document.getElementById('sectionClose');
 const logout = document.querySelector('.js-logout');
 const numberPages = document.querySelector('.js-containerPages');
 
-console.log(numberPages);
-// const pageNext = document.querySelector('.js-pageNext');
-// const pageBack = document.querySelector('.js-pageBack');
-
 let login = [];
 let results = [];
 let html = '';
@@ -18,6 +14,31 @@ let buttons = '';
 let resultSub = [];
 let currentPage = 0;
 let numberElem = 5;
+
+//function to log in, validates the username and password, if correct, creates the API sub-Array and calls the buttons on the following pages, outputs a list of files, otherwise error message:
+
+function loginCredentials() {
+  const md5hash = md5(password.value);
+
+  if (username.value === login.username && md5hash === login.password) {
+    html = '';
+    subArray();
+    callButtons();
+    list();
+    logout.classList.remove('hidden');
+    closeSection.classList.add('hidden');
+    username.value = '';
+    password.value = '';
+  } else {
+    username.value = '';
+    password.value = '';
+    html = '';
+    html += `<div class="page__main--sectionFile__error"> Usuario o contraseña incorrecta, comprueba las mayúsculas </div>`;
+  }
+  container.innerHTML = html;
+}
+
+//We take this sub-array and make a loop to get the list with different elements, we listen to each Li and to the buttons:
 
 function list() {
   for (const malware of resultSub[currentPage]) {
@@ -50,29 +71,8 @@ function list() {
   listenButtons();
 }
 
-//funcion para loguearme
-function loginCredentials() {
-  const md5hash = md5(password.value);
+// Events to remove the list when clicking on a malware and only show me the data of the clicked calling the id and getting the info. And we call the function to go back:
 
-  if (username.value === login.username && md5hash === login.password) {
-    html = '';
-    subArray();
-    callButtons();
-    list();
-    logout.classList.remove('hidden');
-    closeSection.classList.add('hidden');
-    username.value = '';
-    password.value = '';
-  } else {
-    username.value = '';
-    password.value = '';
-    html = '';
-    html += `<div> Usuario o contraseña incorrecta, comprueba las mayúsculas </div>`;
-  }
-  container.innerHTML = html;
-}
-
-// Eventos para al clicar en un malware que me quite el listado y me aparezca solo los datos del clicado
 function handleList(ev) {
   const selected = ev.currentTarget.id;
   const infoSelected = results[selected - 1];
@@ -129,7 +129,7 @@ function handleList(ev) {
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
   }</li>
- <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
+ <li                          class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
    infoSelected.antivirusList.panda === 'clean'
      ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
      : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
@@ -143,6 +143,9 @@ function handleList(ev) {
   container.innerHTML = html;
   back();
 }
+
+//back to page listing function:
+
 function handlerBack() {
   numberPages.classList.remove('hidden');
   html = '';

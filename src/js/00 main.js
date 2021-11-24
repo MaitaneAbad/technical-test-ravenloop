@@ -144,8 +144,7 @@ function handleList(ev) {
   back();
 }
 
-//back to page listing function:
-
+//Function to return to the page listing and to be able to click on another file:
 function handlerBack() {
   numberPages.classList.remove('hidden');
   html = '';
@@ -153,11 +152,11 @@ function handlerBack() {
 }
 
 function back() {
-  const buttonBack = document.querySelectorAll('.js-buttonBack');
-  for (const back of buttonBack) {
-    back.addEventListener('click', handlerBack);
-  }
+  const buttonBack = document.querySelector('.js-buttonBack');
+  buttonBack.addEventListener('click', handlerBack);
 }
+
+//I listen to all the li, I go through them with a for of and depending on which li I click on, I get the information from that id:
 
 function listenList() {
   const listMalware = document.querySelectorAll('.js-list');
@@ -178,10 +177,12 @@ function api() {
     });
 }
 api();
+
+//Creation of subArray array for pagination:
+
 function subArray() {
   const nPages = Math.floor(results.length / numberElem + 1);
 
-  //Creacion de array de subArray para paginación
   //forma manual:
   // const resultSub = [
   //   results.slice(0, numberElem),
@@ -202,6 +203,8 @@ function subArray() {
   }
 }
 
+//creation of n buttons depending on the number of sub-arrays in the main array:
+
 function callButtons() {
   const nPages = Math.floor(results.length / numberElem + 1);
 
@@ -213,14 +216,16 @@ function callButtons() {
   listenButtons();
 }
 
+//I listen to which button I clicked and pull up the corresponding sub-array:
+
 function listenButtons() {
   const listButtons = document.querySelectorAll('.js-buttonPages');
   for (const listClick of listButtons) {
-    listClick.addEventListener('click', handleButtons);
+    listClick.addEventListener('click', handlerButtons);
   }
 }
 
-function handleButtons(ev) {
+function handlerButtons(ev) {
   html = '';
   currentPage = ev.currentTarget.id;
   list();
@@ -228,16 +233,20 @@ function handleButtons(ev) {
   listenList();
 }
 
-// funcion para el botón y loguearme
+// function for the button and log me in:
+
 function handlerButton() {
   loginCredentials();
   listenList();
   listenButtons();
 }
+
+// function for the logout button:
+
 function handlerLogout() {
   location.reload();
 }
 
-//funciones manejadoras
+//funciones handler
 button.addEventListener('click', handlerButton);
 logout.addEventListener('click', handlerLogout);

@@ -86,18 +86,29 @@
   &--sectionFile {
     &__page {
       cursor: pointer;
-      text-align: center;
-
-      &--back {
-        margin-right: 35px;
-        &.hidden {
-          display: none;
-        }
+      display: flex;
+      justify-content: center;
+      &.hidden {
+        display: none;
       }
-      &--next {
-        margin-left: 35px;
-        &.hidden {
-          display: none;
+      &--buttons {
+        margin: 0 5px 2px;
+        padding: 2.5px 6px;
+        background-color: $colorShadow;
+        border: $colorShadow 1px solid;
+        border-radius: 10px;
+        &:hover {
+          cursor: pointer;
+          background-color: $colorHover;
+          border: 1px solid $colorShadow;
+          width: 20px;
+          @media (min-width: 420px) {
+            width: 25px;
+          }
+        }
+        &:focus {
+          border: $colorShadow 2px solid;
+          background-color: $colorHover;
         }
       }
     }
@@ -160,11 +171,11 @@
 
             &__iconClean {
               color: rgb(57, 192, 3);
-              margin-left: 50px;
+              margin-left: 60px;
             }
             &__iconDanger {
               color: red;
-              margin-left: 50px;
+              margin-left: 60px;
             }
           }
         }
@@ -243,6 +254,8 @@
             font-size: $sizeMobile;
             font-weight: normal;
             margin: 5px 0 0 10px;
+            color: rgba(0, 0, 0, 0.726);
+            line-height: 18px;
             @media (min-width: 465px) {
               font-size: ($sizeMobile * 1.2);
             }

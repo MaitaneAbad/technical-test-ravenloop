@@ -1,6 +1,7 @@
 .page__main {
   font-size: $sizeMobile;
   // height: 65vh;
+  width: 100%;
   @media (min-width: 465px) {
     font-size: ($sizePage * 1.2);
   }

@@ -21,34 +21,27 @@ let numberElem = 5;
 
 function list() {
   for (const malware of resultSub[currentPage]) {
-    html += `<li id=${
-      malware.id
-    } class="page__main--sectionFile__sectionList--list hidden js-list">
-     <h4 class="page__main--sectionFile__sectionList--list__name">Fichero: <span class="page__main--sectionFile__sectionList--list__name--span"> ${
-       malware.fileName
-     }${
-      malware.scoreAnalysis === '0'
-        ? '<i class="page__main--sectionFile__sectionList--list__name--span__iconClean fas fa-circle"></i>'
-        : '<i class="page__main--sectionFile__sectionList--list__name--span__iconDanger fas fa-circle"></i>'
-    }</span></h4>
+    html += `<li id=${malware.id
+      } class="page__main--sectionFile__sectionList--list hidden js-list">
+     <h4 class="page__main--sectionFile__sectionList--list__name">Fichero: <span class="page__main--sectionFile__sectionList--list__name--span"> ${malware.fileName
+      }${malware.scoreAnalysis === '0' ?
+        '<i class="page__main--sectionFile__sectionList--list__name--span__iconClean fas fa-circle"></i>' :
+        '<i class="page__main--sectionFile__sectionList--list__name--span__iconDanger fas fa-circle"></i>'
+      }</span></h4>
     <p class="page__main--sectionFile__sectionList--list__name">Md5:
-     <span class="page__main--sectionFile__sectionList--list__name--span">${
-       malware.hashmd5
-     }</span></p>
- <p class="page__main--sectionFile__sectionList--list__name">Fecha de inserción: <span class="page__main--sectionFile__sectionList--list__name--span">${
-   malware.insertionDate
- }</span></p><p class="page__main--sectionFile__sectionList--list__name">Última actualización: <span class="page__main--sectionFile__sectionList--list__name--span">${
-      malware.lastUpdate
-    }</span> </p>
-    <p class="page__main--sectionFile__sectionList--list__name">Sistema operativo: <span class="page__main--sectionFile__sectionList--list__name--span"> ${
-      malware.systemConcerned
-    }</span></p></li>`;
+     <span class="page__main--sectionFile__sectionList--list__name--span">${malware.hashmd5
+      }</span></p>
+ <p class="page__main--sectionFile__sectionList--list__name">Fecha de inserción: <span class="page__main--sectionFile__sectionList--list__name--span">${malware.insertionDate
+      }</span></p><p class="page__main--sectionFile__sectionList--list__name">Última actualización: <span class="page__main--sectionFile__sectionList--list__name--span">${malware.lastUpdate
+      }</span> </p>
+    <p class="page__main--sectionFile__sectionList--list__name">Sistema operativo: <span class="page__main--sectionFile__sectionList--list__name--span"> ${malware.systemConcerned
+      }</span></p></li>`;
   }
   container.innerHTML = html;
 
   // handlerPageNext();
   // handlerPageBack();
-  listenList();
+  //listenList();
   listenButtons();
 }
 
@@ -63,7 +56,6 @@ function loginCredentials() {
     list();
     logout.classList.remove('hidden');
     closeSection.classList.add('hidden');
-    // pageNext.classList.remove('hidden');
     username.value = '';
     password.value = '';
   } else {
@@ -80,68 +72,50 @@ function loginCredentials() {
 // Eventos para al clicar en un malware que me quite el listado y me aparezca solo los datos del clicado
 function handleList(ev) {
   const selected = ev.currentTarget.id;
-  console.log(selected);
-  const auxArray = resultSub[currentPage];
-  console.log(auxArray);
-  const infoSelected = auxArray[selected - 1];
+  const infoSelected = results[selected - 1];
   console.log(infoSelected);
   html = ' ';
   html += `<article class="page__main--sectionFile__sectionInfo--info"> <h3 class="page__main--sectionFile__sectionInfo--info__title">Información </h3>
- <p class="page__main--sectionFile__sectionInfo--info__name"> Nombre completo: <span class="page__main--sectionFile__sectionInfo--info__name--span">${
-   infoSelected.fileNameComplete
- }</span> </p>
-  <p class="page__main--sectionFile__sectionInfo--info__name">Extensión: <span class="page__main--sectionFile__sectionInfo--info__name--span">${
-    infoSelected.fileExtension === 'PDF'
+ <p class="page__main--sectionFile__sectionInfo--info__name"> Nombre completo: <span class="page__main--sectionFile__sectionInfo--info__name--span">${infoSelected.fileNameComplete
+    }</span> </p>
+  <p class="page__main--sectionFile__sectionInfo--info__name">Extensión: <span class="page__main--sectionFile__sectionInfo--info__name--span">${infoSelected.fileExtension === 'PDF'
       ? 'PDF <i class="fas fa-file-pdf page__main--sectionFile__sectionInfo--info__name--span__icon"></i>'
       : ''
-  } </span></p>
-  <p class="page__main--sectionFile__sectionInfo--info__name"> Tamaño: <span class="page__main--sectionFile__sectionInfo--info__name--span">${
-    infoSelected.fileSize
-  } </span></p>
-  <ul class="page__main--sectionFile__sectionInfo--info__list"> <li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash md5: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${
-    infoSelected.hash.md5
-  }</span></li> 
-  <li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha-1: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${
-    infoSelected.hash.sha1
-  }</span></li> 
-  <li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha256: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${
-    infoSelected.hash.sha256
-  }</span></li></ul> 
-  <p class="page__main--sectionFile__sectionInfo--info__ip"> Dirección <span class="page__main--sectionFile__sectionInfo--info__ip--span">ip</span> a las que se ha conectado: <span class="page__main--sectionFile__sectionInfo--info__ip--span__span">${
-    infoSelected.ip
-  }</span> </p>
-  <p class="page__main--sectionFile__sectionInfo--info__name"> Puntuación obtenida tras el análisis: <span class="page__main--sectionFile__sectionInfo--info__name--span">${
-    infoSelected.scoreAnalysis
-  }</span></p>
-<ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de ficheros generados:</p> <li class="page__main--sectionFile__sectionInfo--info__list--file">${
-    infoSelected.fileList.fileOne
-  }</li>
-   <li class="page__main--sectionFile__sectionInfo--info__list--file">${
-     infoSelected.fileList.fileTwo
-   }</li>
-   <li class="page__main--sectionFile__sectionInfo--info__list--file">${
-     infoSelected.fileList.fileThree
-   }</li></ul>
-  <ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de antivirus:<p> <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Avast <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
-    infoSelected.antivirusList.avast === 'clean'
+    } </span></p>
+  <p class="page__main--sectionFile__sectionInfo--info__name"> Tamaño: <span class="page__main--sectionFile__sectionInfo--info__name--span">${infoSelected.fileSize
+    } </span></p>
+  <ul class="page__main--sectionFile__sectionInfo--info__list"> <li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash md5: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${infoSelected.hash.md5
+    }</span></li> 
+  <li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha-1: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${infoSelected.hash.sha1
+    }</span></li> 
+  <li class="page__main--sectionFile__sectionInfo--info__list--hash"> Hash sha256: <span class="page__main--sectionFile__sectionInfo--info__list--hash__span">${infoSelected.hash.sha256
+    }</span></li></ul> 
+  <p class="page__main--sectionFile__sectionInfo--info__ip"> Dirección <span class="page__main--sectionFile__sectionInfo--info__ip--span">ip</span> a las que se ha conectado: <span class="page__main--sectionFile__sectionInfo--info__ip--span__span">${infoSelected.ip
+    }</span> </p>
+  <p class="page__main--sectionFile__sectionInfo--info__name"> Puntuación obtenida tras el análisis: <span class="page__main--sectionFile__sectionInfo--info__name--span">${infoSelected.scoreAnalysis
+    }</span></p>
+<ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de ficheros generados:</p> <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileOne
+    }</li>
+   <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileTwo
+    }</li>
+   <li class="page__main--sectionFile__sectionInfo--info__list--file">${infoSelected.fileList.fileThree
+    }</li></ul>
+  <ul class="page__main--sectionFile__sectionInfo--info__list"> <p class="page__main--sectionFile__sectionInfo--info__list--name">Listado de antivirus:<p> <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Avast <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${infoSelected.antivirusList.avast === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
-  }</span></li>
-  <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">McAfree <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
-    infoSelected.antivirusList.mcafree === 'clean'
+    }</span></li>
+  <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">McAfree <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${infoSelected.antivirusList.mcafree === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
-  }</li>
-  <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">BitDefender <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
-    infoSelected.antivirusList.bitdefender === 'clean'
+    }</li>
+  <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">BitDefender <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${infoSelected.antivirusList.bitdefender === 'clean'
       ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
       : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
-  }</li>
- <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${
-   infoSelected.antivirusList.panda === 'clean'
-     ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
-     : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
- }</li>
+    }</li>
+ <li class="page__main--sectionFile__sectionInfo--info__list--antivirus">Panda <i class="fas fa-long-arrow-alt-right"></i> <span class="page__main--sectionFile__sectionInfo--info__list--antivirus__span">${infoSelected.antivirusList.panda === 'clean'
+      ? 'Limpio <i class="fas fa-check page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconClean"></i>'
+      : 'Peligroso <i class="fas fa-exclamation-triangle page__main--sectionFile__sectionInfo--info__list--antivirus__span--iconMalicious"></span></i>'
+    }</li>
    </ul><form class="page__main--sectionFile__sectionInfo--info__form"><input
   class="page__main--sectionFile__sectionInfo--info__form--button js-buttonBack"
   type="button"

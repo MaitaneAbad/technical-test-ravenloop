@@ -190,7 +190,6 @@ function subArray() {
   //   results.slice(numberElem, 2 * numberElem),
   //   results.slice(2 * numberElem, 2 * numberElem + 2),
   // ];
-  // console.log(resultSub);
 
   //forma dinámica:
   for (let i = 0; i < nPages; i++) {

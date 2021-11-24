@@ -308,6 +308,7 @@
         &__form {
           display: flex;
           justify-content: center;
+          padding-bottom: 30px;
           &--button {
             margin: 10px 0 30px;
             @media (min-width: 450px) {

@@ -6,6 +6,7 @@ const container = document.querySelector('.js-container');
 const closeSection = document.getElementById('sectionClose');
 const logout = document.querySelector('.js-logout');
 const numberPages = document.querySelector('.js-containerPages');
+const form = document.querySelector('.js-form');
 
 let login = [];
 let results = [];
@@ -247,6 +248,11 @@ function handlerLogout() {
   location.reload();
 }
 
+function handlesubmit(ev) {
+  ev.preventDefault();
+}
+
 //funciones handler
 button.addEventListener('click', handlerButton);
 logout.addEventListener('click', handlerLogout);
+form.addEventListener('submit', handlesubmit);

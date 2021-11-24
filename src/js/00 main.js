@@ -18,6 +18,7 @@ let numberElem = 5;
 //function to log in, validates the username and password, if correct, creates the API sub-Array and calls the buttons on the following pages, outputs a list of files, otherwise error message:
 
 function loginCredentials() {
+  //constant to hash the password:
   const md5hash = md5(password.value);
 
   if (username.value === login.username && md5hash === login.password) {

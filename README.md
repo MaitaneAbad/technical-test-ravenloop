@@ -7,7 +7,7 @@
 Este proyecto consiste en la implementación y el diseño de un portal de ficheros malware con de distinta informacíon del análisis obtenido.
 En el listado aparece nombre del fichero, Hashmd5 y otros datos. Al clicar en cualquiera del listado, aparecerá más información acerca del análisis y diferentes datos como una puntuación dependiendo del peligro, un listado de antivirus con el estado de limpio o malicioso...
 
-Para poder acceder al portal hay que introducir el usuario: ### *CEO* y la contraseña: ### *Tesla*
+Para poder acceder al portal hay que introducir el usuario:  <h2>*CEO*</h2> y la contraseña:  <h2>*Tesla*</h2>
 
 ### Comenzando 🚀
 

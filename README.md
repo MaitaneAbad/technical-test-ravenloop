@@ -10,7 +10,7 @@ En el listado aparece nombre del fichero, Hashmd5 y otros datos. Al clicar en cu
 Para poder acceder al portal hay que introducir:
 
 #### usuario: *CEO* 
-#### contraseña:  <h2>*Tesla*</h2>
+#### contraseña:  Tesla
 
 ### Comenzando 🚀
 

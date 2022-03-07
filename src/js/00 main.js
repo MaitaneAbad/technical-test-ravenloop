@@ -183,7 +183,7 @@ api();
 //Creation of subArray array for pagination:
 
 function subArray() {
-  const nPages = Math.floor(results.length / numberElem + 1);
+  const nPages = Math.floor(results.length / numberElem) + 1;
 
   //forma manual:
   // const resultSub = [
@@ -194,14 +194,15 @@ function subArray() {
 
   //forma dinámica:
   for (let i = 0; i < nPages; i++) {
-    let aux = 0;
+    let finalElem = 0;
     if (i === nPages - 1) {
-      aux = i * numberElem + (results.length % numberElem);
+      finalElem = i * numberElem + (results.length % numberElem);
     } else {
-      aux = (i + 1) * numberElem;
+      finalElem = (i + 1) * numberElem;
     }
-    resultSub.push(results.slice(i * numberElem, aux));
+    resultSub.push(results.slice(i * numberElem, finalElem));
   }
+  console.log(resultSub);
 }
 
 //creation of n buttons depending on the number of sub-arrays in the main array:
